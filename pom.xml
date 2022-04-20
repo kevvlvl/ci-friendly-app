@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.kevvlvl.cifriendly</groupId>
+    <artifactId>ci-friendly-app</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+
+        <maven-enforcer-plugin.version>3.0.0</maven-enforcer-plugin.version>
+        <ci-friendly-lib.version>1.0.1</ci-friendly-lib.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.kevvlvl.cifriendly</groupId>
+            <artifactId>ci-friendly-lib</artifactId>
+            <version>${ci-friendly-lib.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <!--
+            source: https://maven.apache.org/enforcer/enforcer-rules/dependencyConvergence.html
+
+            This rule requires that dependency version numbers converge.
+            If a project has two dependencies, A and B, both depending on the same artifact, C,
+               this rule will fail the build if A depends on a different version of C than the version of C depended on by B.
+
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>${maven-enforcer-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>enforce</id>
+                        <configuration>
+                            <rules>
+                                <dependencyConvergence/>
+                            </rules>
+                        </configuration>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
