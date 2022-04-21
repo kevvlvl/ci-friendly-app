@@ -37,7 +37,10 @@ Let's update our dep to use the latest available release
 
 Now, imagine we want again to point to the latest snapshot, perhaps because we're doing local development on this same depenendy, and we want to ensure our code pulls the snapshot from our local m2 repo, then we manually change the versions to the SNAPSHOT matching our local dev. 
 
-Once we're complete and that a new release is available. Change back to release
+Once we're complete and that a new release is available. Change back to release using these two steps:
+
+- ``mvnw versions:use-releases`` Changes the snapshot versions to release.
+- ``mvnw versions:use-latest-releases`` Sets to the latest found release.
 
 ```shell
  ./mvnw versions:use-releases 
