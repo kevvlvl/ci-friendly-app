@@ -6,14 +6,14 @@
 
     <groupId>org.kevvlvl.cifriendly</groupId>
     <artifactId>ci-friendly-app</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
 
         <maven-enforcer-plugin.version>3.0.0</maven-enforcer-plugin.version>
-        <ci-friendly-lib.version>1.0.1</ci-friendly-lib.version>
+        <versions-maven-plugin.version>2.10.0</versions-maven-plugin.version>
     </properties>
 
     <dependencies>
@@ -21,7 +21,7 @@
         <dependency>
             <groupId>org.kevvlvl.cifriendly</groupId>
             <artifactId>ci-friendly-lib</artifactId>
-            <version>${ci-friendly-lib.version}</version>
+            <version>1.0.1</version>
         </dependency>
 
     </dependencies>
@@ -55,6 +55,28 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!--
+            source: https://www.mojohaus.org/versions-maven-plugin/examples/advancing-dependency-versions.html
+
+            Manage specific dependencies or dependencymanagement using the versions-maven-plugin
+
+            -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${versions-maven-plugin.version}</version>
+                <configuration>
+
+                    <includes>
+                        <include>org.kevvlvl.cifriendly:ci-friendly-lib</include>
+                        <!--include>org.kevvlvl.cifriendly:*</include--> <!-- you can star the artifact-name to include a group ID altogether -->
+                    </includes>
+
+                    <excludes />
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
