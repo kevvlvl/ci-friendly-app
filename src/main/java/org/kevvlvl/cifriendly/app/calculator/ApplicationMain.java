@@ -5,6 +5,6 @@ public class ApplicationMain {
     public static void main(String[] args) {
 
         CalculatorHandler handler = new CalculatorHandler();
-        int result = handler.add(10, 20);
+        handler.add(10, 20);
     }
 }
