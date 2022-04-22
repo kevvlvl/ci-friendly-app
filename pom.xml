@@ -18,12 +18,21 @@
 
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.kevvlvl.cifriendly</groupId>
+                <artifactId>ci-friendly-lib</artifactId>
+                <version>1.0.2</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
 
         <dependency>
             <groupId>org.kevvlvl.cifriendly</groupId>
             <artifactId>ci-friendly-lib</artifactId>
-            <version>1.0.2</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->

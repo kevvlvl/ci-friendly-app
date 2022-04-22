@@ -28,7 +28,7 @@ We can see that RELEASE 1.0.1 is available as we are set to 1.0.0
 Let's update our dep to use the latest available release
 
 ```shell
-./mvnw versions:use-latest-releases                                                                                                                                                                         ci-friendly-app -> main !
+./mvnw versions:use-latest-releases
 ...
 [INFO] --- versions-maven-plugin:2.10.0:use-latest-releases (default-cli) @ ci-friendly-app ---
 [INFO] Major version changes allowed
